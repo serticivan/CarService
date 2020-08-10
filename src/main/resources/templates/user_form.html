@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <meta charset="UTF-8">
+    <title>User form</title>
+
+
+</head>
+<body>
+
+<div class="container" style="margin-top: 2%;">
+    <h1>Registration - User</h1>
+    <br/>
+    <form class="form-group" action="/user/save" method="post" th:object="${user}">
+
+        <input type="hidden" th:field="*{id}"/>
+
+        <div class="form-group">
+            <label>First name:</label>
+            <input class="form-control" type="text" th:field="*{firstName}"/>
+            <br/><br/>
+        </div>
+
+        <div class="form-group">
+            <label>Last name:</label>
+            <input class="form-control" type="text" th:field="*{lastName}"/>
+            <br/><br/>
+        </div>
+
+        <div class="form-group">
+            <label>Oib:</label>
+            <input class="form-control" type="number" th:field="*{oib}"/>
+            <br/><br/>
+        </div>
+
+        <div class="form-group">
+            <label>Street name:</label>
+            <input class="form-control" type="text" th:field="*{address.streetName}"/>
+            <br/><br/>
+        </div>
+
+        <div class="form-group">
+            <label>House number:</label>
+            <input class="form-control" type="text" th:field="*{address.houseNumber}"/>
+            <br/><br/>
+        </div>
+
+        <div class="form-group">
+            <label>City:</label>
+            <input class="form-control" type="text" th:field="*{address.cityName}"/>
+            <br/><br/>
+        </div>
+
+        <div class="form-group">
+            <label>Post number:</label>
+            <input class="form-control" type="number" th:field="*{address.postNumber}"/>
+            <br/><br/>
+        </div>
+
+        <div class="form-group">
+            <label>Country:</label>
+            <input class="form-control" type="text" th:field="*{address.countryName}"/>
+            <br/><br/>
+        </div>
+
+
+
+
+<!--        <div class="form-group">-->
+<!--            <label>Address:</label>-->
+<!--            <input class="form-control" type="number" th:field="*{address}"/>-->
+<!--            <br/><br/>-->
+<!--        </div>-->
+
+<!--        <div class="form-group">-->
+<!--            <label>Select gender: </label>-->
+<!--            <select class="ui dropdown fluid form-control" th:field="*{gender}">-->
+
+<!--                <option th:each="gender : ${T(hr.inovatrend.demo.domain.Gender).values()}"-->
+<!--                        th:value="${gender}"-->
+<!--                        th:text="${gender.gender}">Options</option>-->
+<!--            </select>-->
+<!--        </div>-->
+
+        <hr/>
+        <br/><br/>
+
+        <button type="submit" class="btn btn-info"> Submit</button>
+        <a th:href="@{'/user/list/'}">
+            <button class="btn btn-info" type="button">Back</button>
+        </a>
+
+    </form>
+</div>
+</body>
+</html>
