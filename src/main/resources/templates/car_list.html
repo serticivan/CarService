@@ -10,27 +10,27 @@
 <body>
 
 <div class="container-fluid col-md-3 text-center">
-    <h1>User list</h1>
-    <table class="table" th:each="user : ${users}">
+    <h1>Car list</h1>
+    <table class="table" th:each="car : ${cars}">
         <tbody>
         <tr class="d-flex">
-            <td class="col-md-4"><a th:href="@{'/user/info/' + ${user.id}}"><span
-                    th:text="${user.firstName} + ' ' + ${user.lastName}">User</span></a>
+            <td class="col-md-4"><a th:href="@{'/car/info/' + ${car.carId}}"><span
+                    th:text="${car.carType.manufacturer} + ' ' + ${car.carType.model}">Car</span></a>
             </td>
-            <td class="col-md-4"><a th:href="'/user/delete/' + ${user.id}">
-                <button class="btn btn-danger">Delete user</button>
+            <td class="col-md-4"><a th:href="'/car/delete/' + ${car.carId}">
+                <button class="btn btn-danger">Delete car</button>
             </a>
             </td>
-            <td class="col-md-4"><a th:href="@{'/user/edit/' + ${user.id}}">
-                <button class="btn btn-warning">Edit user</button>
+            <td class="col-md-4"><a th:href="@{'/car/edit/' + ${car.carId}}">
+                <button class="btn btn-warning">Edit car</button>
             </a>
             </td>
         </tr>
         </tbody>
     </table>
     <div class="row mt-3">
-        <a th:href="@{'/user/save/'}">
-            <button class="btn btn-success btn-lg btn-block">Add user</button>
+        <a th:href="@{'/car/save/'}">
+            <button class="btn btn-success btn-lg btn-block">Add car</button>
         </a>
         <div/>
     </div>

@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -34,7 +36,6 @@ public class User {
     @Embedded
     private Address address;
 
-//    @Column(name = "cars")
-//    private String carList;
-
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<Car> carList = new HashSet<>();
 }

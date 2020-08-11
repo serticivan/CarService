@@ -79,20 +79,13 @@
 
 
 
-
 <!--        <div class="form-group">-->
-<!--            <label>Address:</label>-->
-<!--            <input class="form-control" type="number" th:field="*{address}"/>-->
-<!--            <br/><br/>-->
-<!--        </div>-->
+<!--            <label>Select car: </label>-->
+<!--            <select class="ui dropdown fluid form-control" th:field="*{carType}">-->
 
-<!--        <div class="form-group">-->
-<!--            <label>Select gender: </label>-->
-<!--            <select class="ui dropdown fluid form-control" th:field="*{gender}">-->
-
-<!--                <option th:each="gender : ${T(hr.inovatrend.demo.domain.Gender).values()}"-->
-<!--                        th:value="${gender}"-->
-<!--                        th:text="${gender.gender}">Options</option>-->
+<!--                <option th:each="carType : ${T(hr.inovatrend.carService.domain.CarType).values()}"-->
+<!--                        th:value="${carType}"-->
+<!--                        th:text="${carType.manufacturer} + ' ' + ${carType.model}">Options</option>-->
 <!--            </select>-->
 <!--        </div>-->
 

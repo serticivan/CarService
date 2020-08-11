@@ -1,6 +1,8 @@
 package hr.inovatrend.carService.controller;
 
+import hr.inovatrend.carService.dao.CarRepository;
 import hr.inovatrend.carService.dao.UserRepository;
+import hr.inovatrend.carService.domain.Car;
 import hr.inovatrend.carService.domain.User;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -16,9 +18,11 @@ import java.util.Optional;
 public class UserController {
 
     private final UserRepository userRepository;
+    private final CarRepository carRepository;
 
-    public UserController(UserRepository userRepository) {
+    public UserController(UserRepository userRepository, CarRepository carRepository) {
         this.userRepository = userRepository;
+        this.carRepository = carRepository;
     }
 
     @GetMapping("/save")
@@ -31,7 +35,7 @@ public class UserController {
     @PostMapping("/save")
     private String save(Model model, @ModelAttribute User user) {
         userRepository.save(user);
-        return"user_info";
+        return "user_info";
     }
 
     @RequestMapping("/list")
@@ -42,30 +46,29 @@ public class UserController {
     }
 
     @RequestMapping("/info/{userId}")
-    private String showUserInfo(Model model, @PathVariable Long userId){
+    private String showUserInfo(Model model, @PathVariable Long userId) {
         Optional<User> user = userRepository.findById(userId);
-        if (user.isPresent()){
+        if (user.isPresent()) {
             model.addAttribute("user", user.get());
         }
         return "user_info";
     }
 
     @RequestMapping("delete/{userId}")
-    private String deleteUser(@PathVariable Long userId){
+    private String deleteUser(@PathVariable Long userId) {
         userRepository.deleteById(userId);
         return "redirect:/user/list";
     }
 
     @RequestMapping("edit/{userId}")
-        private String editUser(Model model, @PathVariable Long userId) {
+    private String editUser(Model model, @PathVariable Long userId) {
         Optional<User> user = userRepository.findById(userId);
         if (user.isPresent()) {
             model.addAttribute("user", user);
         }
         return "user_form";
 
-        }
-
+    }
 
 
 }

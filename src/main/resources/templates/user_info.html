@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../css/mystyle.css">
 </head>
 <body>
@@ -12,36 +13,44 @@
     <h1>User info</h1>
     <table>
         <tr>
-            <td class="mr-2 bigblock">First name: </td>
+            <td class="mr-2 bigblock">First name:</td>
             <td th:text="${user.firstName}"/>
         </tr>
         <tr>
-            <td class="mr-2 bigblock">Last name: </td>
+            <td class="mr-2 bigblock">Last name:</td>
             <td th:text="${user.lastName}"/>
         </tr>
         <tr>
-            <td class="mr-2 bigblock">Oib: </td>
+            <td class="mr-2 bigblock">Oib:</td>
             <td th:text="${user.oib}"/>
         </tr>
         <tr>
-            <td class="mr-2 bigblock">Street: </td>
+            <td class="mr-2 bigblock">Street:</td>
             <td th:text="${user.address.streetName}"/>
         </tr>
         <tr>
-            <td class="mr-2 bigblock">House number: </td>
+            <td class="mr-2 bigblock">House number:</td>
             <td th:text="${user.address.houseNumber}"/>
         </tr>
         <tr>
-            <td class="mr-2 bigblock">Post number: </td>
+            <td class="mr-2 bigblock">Post number:</td>
             <td th:text="${user.address.postNumber}"/>
         </tr>
         <tr>
-            <td class="mr-2 bigblock">City: </td>
+            <td class="mr-2 bigblock">City:</td>
             <td th:text="${user.address.cityName}"/>
         </tr>
         <tr>
-            <td class="mr-2 bigblock">Country: </td>
+            <td class="mr-2 bigblock">Country:</td>
             <td th:text="${user.address.countryName}"/>
+        </tr>
+
+        <tr>
+            <td class="mr-2 bigblock">Car:</td>
+            <td th:each="car : ${user.carList}">
+                <a th:href="@{'/car/info/' + ${car.carId}}"
+                   th:text="${car.carType.manufacturer} + ' ' + ${car.carType.model}"></a>
+            </td>
         </tr>
     </table>
     <a th:href="@{'/user/list/'}">
