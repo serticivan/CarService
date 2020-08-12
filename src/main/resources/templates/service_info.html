@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/mystyle.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1>Service info</h1>
+    <table>
+        <tr>
+            <td class="mr-2 bigblock">Worker first name: </td>
+            <td th:text="${service.workerFirstName}"/>
+        </tr>
+
+        <tr>
+            <td class="mr-2 bigblock">Worker first name: </td>
+            <td th:text="${service.workerLastName}"/>
+        </tr>
+
+        <tr>
+            <td class="mr-2 bigblock">Description: </td>
+            <td th:text="${service.workDescription}"/>
+        </tr>
+
+        <tr>
+            <td class="mr-2 bigblock">Service done at: </td>
+            <td th:text="${service.dateNow}"/>
+        </tr>
+
+        <tr>
+            <td class="mr-2 bigblock">Price: </td>
+            <td th:text="${service.price}"/>
+        </tr>
+
+        <tr>
+            <td class="mr-2 bigblock">Is paid: </td>
+            <td th:text="${service.isPaid()}"/>
+        </tr>
+
+<!--        <tr>-->
+<!--            <td class="mr-2 bigblock">Owner: </td>-->
+<!--            <td><a th:href="@{'/user/info/' + ${car.user.id}}"-->
+<!--                   th:text="${car.user.firstName + ' ' + car.user.lastName}"></a></td>-->
+<!--        </tr>-->
+
+    </table>
+    <a th:href="@{'/service/list/'}">
+        <button class="btn btn-info" type="button">Back</button>
+    </a>
+</div>
+</body>
+</html>

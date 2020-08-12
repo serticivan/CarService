@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -35,6 +37,9 @@ public class Car {
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
+
+    @OneToMany(mappedBy = "car", fetch = FetchType.EAGER)
+    private Set<Service> serviceList = new HashSet<>();
 
 
 }

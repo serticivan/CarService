@@ -37,9 +37,20 @@
                    th:text="${car.user.firstName + ' ' + car.user.lastName}"></a></td>
         </tr>
 
+        <tr>
+            <td class="mr-2 bigblock">Service car:</td>
+            <td th:each="service : ${car.serviceList}">
+                <a th:href="@{'/service/info/' + ${service.serviceId}}"
+                   th:text="${service.workerFirstName} + ' ' + ${car.carType.model}"></a>
+            </td>
+        </tr>
+
     </table>
     <a th:href="@{'/car/list/'}">
         <button class="btn btn-info" type="button">Back</button>
+    </a>
+    <a th:href="@{'/service/save/' + ${car.carId}}">
+        <button class="btn btn-success" type="button">Add new service</button>
     </a>
 </div>
 </body>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container-fluid col-md-3 text-center">
+    <h1>Service list</h1>
+
+    <table class="table" th:each="service : ${services}">
+        <tbody>
+
+        <tr class="d-flex">
+            <td class="col-md-4"><a th:href="@{'/service/info/' + ${service.serviceId}}">
+<!--                <span th:text="${service.car.carType.manufacturer} + ' ' + ${service.car.carType.model}">Service</span></a>-->
+                <span th:text="${service.dateNow} + ' ' + ${service.workerFirstName}">Service</span></a>
+            </td>
+            <td class="col-md-4"><a th:href="'/service/delete/' + ${service.serviceId}">
+                <button class="btn btn-danger">Delete service</button>
+            </a>
+            </td>
+            <td class="col-md-4"><a th:href="@{'/service/edit/' + ${service.serviceId}}">
+                <button class="btn btn-warning">Edit service</button>
+            </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row mt-3">
+        <a th:href="@{'/service/save/'}">
+            <button class="btn btn-success btn-lg btn-block">Add Service</button>
+        </a>
+        <div/>
+    </div>
+
+</body>
+</html>
