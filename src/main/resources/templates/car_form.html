@@ -31,11 +31,13 @@
 
 
         <div class="row mt-3">
-            <label class="mr-2 block " > Assign user: </label>
-            <select th:field="*{user}">
+            <label class="mr-2 block" for="assign" > Assign user: </label>
+            <select id="assign" th:field="*{user}">
                 <option th:each="user : ${users}"
                         th:value="${user.id}"
-                        th:text="${user.firstName + ' ' + user.lastName}">Users
+                        th:text="${user.firstName + ' ' + user.lastName}"
+                        th:selected="${user.id} == ${selectedUser}" >Users
+
                 </option>
             </select>
         </div>

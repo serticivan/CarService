@@ -34,10 +34,22 @@ public class CarController {
         return "car_form";
     }
 
+    @GetMapping("/save/{userId}")
+    private String showCarForm(Model model, @PathVariable Long userId) {
+        Car car = new Car();
+        model.addAttribute(car);
+
+        List<User> users = userRepository.findAll();
+        model.addAttribute("users", users);
+        model.addAttribute("selectedUser", userId);
+        return "car_form";
+    }
+
     @PostMapping("/save")
     private String saveCar(Model model, @ModelAttribute Car car) {
+        Long userId = car.getUser().getId();
         carRepository.save(car);
-        return"car_info";
+        return "redirect:/user/info/" + userId;
     }
 
     @RequestMapping("/list")

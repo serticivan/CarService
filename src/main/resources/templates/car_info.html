@@ -33,7 +33,8 @@
 
         <tr>
             <td class="mr-2 bigblock">Owner: </td>
-            <td th:text="${car.user.firstName + ' ' + car.user.lastName}"/>
+            <td><a th:href="@{'/user/info/' + ${car.user.id}}"
+                   th:text="${car.user.firstName + ' ' + car.user.lastName}"></a></td>
         </tr>
 
     </table>

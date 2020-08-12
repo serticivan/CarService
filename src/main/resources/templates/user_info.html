@@ -56,6 +56,9 @@
     <a th:href="@{'/user/list/'}">
         <button class="btn btn-info" type="button">Back</button>
     </a>
+    <a th:href="@{'/car/save/' + ${user.id}}">
+        <button class="btn btn-success" type="button">Add new car</button>
+    </a>
 </div>
 </body>
 </html>
