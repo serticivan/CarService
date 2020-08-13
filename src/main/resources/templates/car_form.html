@@ -30,14 +30,24 @@
         <input type="hidden" th:field="*{carId}"/>
 
 
+<!--        <div class="row mt-3">-->
+<!--            <label class="mr-2 block" for="user" > Assign user: </label>-->
+<!--            <select id="user" name = "user" th:with="user = *{user}" >-->
+<!--                <option th:each="user : ${users}"-->
+<!--                        th:value="${user.id}"-->
+<!--                        th:text="${user.firstName + ' ' + user.lastName}"-->
+<!--                        th:selected="${user.id} == ${selectedUser}" >Users-->
+
+<!--                </option>-->
+<!--            </select>-->
+<!--        </div>-->
+
         <div class="row mt-3">
-            <label class="mr-2 block" for="user" > Assign user: </label>
-            <select id="user" name = "user" th:with="user = *{user}" >
+            <label class="mr-2 block" for="assign" >Assign car to: </label>
+            <select id="assign" th:field="*{user}">
                 <option th:each="user : ${users}"
                         th:value="${user.id}"
-                        th:text="${user.firstName + ' ' + user.lastName}"
-                        th:selected="${user.id} == ${selectedUser}" >Users
-
+                        th:text="${user.firstName + ' ' + user.lastName}">Users
                 </option>
             </select>
         </div>

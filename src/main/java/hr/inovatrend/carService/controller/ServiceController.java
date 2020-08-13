@@ -78,7 +78,7 @@ public class ServiceController {
     private String editService(Model model, @PathVariable Long serviceId) {
         Optional<Service> service = serviceRepository.findById(serviceId);
         if (service.isPresent()) {
-            model.addAttribute("service", service);
+            model.addAttribute("service", service.get());
         }
 
         List<Car> cars = carRepository.findAll();

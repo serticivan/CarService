@@ -38,7 +38,7 @@ public class Service {
     private Double price;
 
     @Column(name = "is_paid")
-    private boolean isPaid;
+    private Boolean isPaid;
 
     @ManyToOne
     @JoinColumn(name = "carId")

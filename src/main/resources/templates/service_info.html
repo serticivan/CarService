@@ -11,6 +11,35 @@
 <div class="container mt-5">
     <h1>Service info</h1>
     <table>
+
+        <tr>
+            <td class="mr-2 bigblock">Serviced car: </td>
+            <td><a th:href="@{'/car/info/' + ${service.car.carId}}"
+                   th:text="${service.car.carType.manufacturer + ' ' + service.car.carType.model}"></a></td>
+        </tr>
+
+<!--        <tr>-->
+<!--            <td class="mr-2 bigblock">Serviced car: </td>-->
+<!--            <td-->
+<!--                   th:text="${service.car.carType.manufacturer}"></td>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--            <td class="mr-2 bigblock">Owner: </td>-->
+<!--            <td><a th:href="@{'/user/info/' + ${car.user.id}}"-->
+<!--                   th:text="${car.user.firstName + ' ' + car.user.lastName}"></a></td>-->
+<!--        </tr>-->
+<!--        -->
+<!--        <tr>-->
+<!--            <td class="mr-2 bigblock">Manufactured: </td>-->
+<!--            <td th:text="${car.carType.manufacturer}"/>-->
+<!--        </tr>-->
+
+<!--        <tr>-->
+<!--            <td class="mr-2 bigblock">Model: </td>-->
+<!--            <td th:text="${car.}"/>-->
+<!--        </tr>-->
+
         <tr>
             <td class="mr-2 bigblock">Worker first name: </td>
             <td th:text="${service.workerFirstName}"/>
@@ -38,14 +67,8 @@
 
         <tr>
             <td class="mr-2 bigblock">Is paid: </td>
-            <td th:text="${service.isPaid()}"/>
+            <td th:text="${service.isPaid}"/>
         </tr>
-
-<!--        <tr>-->
-<!--            <td class="mr-2 bigblock">Owner: </td>-->
-<!--            <td><a th:href="@{'/user/info/' + ${car.user.id}}"-->
-<!--                   th:text="${car.user.firstName + ' ' + car.user.lastName}"></a></td>-->
-<!--        </tr>-->
 
     </table>
     <a th:href="@{'/service/list/'}">
