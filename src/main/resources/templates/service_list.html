@@ -9,6 +9,9 @@
 </head>
 <body>
 
+<div th:insert="homepage :: homepageHeaderCss"></div>
+<div th:insert="homepage :: homepageHeader"></div>
+
 <div class="container-fluid col-md-3 text-center">
     <h1>Service list</h1>
 
@@ -17,7 +20,6 @@
 
         <tr class="d-flex">
             <td class="col-md-4"><a th:href="@{'/service/info/' + ${service.serviceId}}">
-<!--                <span th:text="${service.car.carType.manufacturer} + ' ' + ${service.car.carType.model}">Service</span></a>-->
                 <span th:text="${service.dateNow} + ' ' + ${service.workerFirstName}">Service</span></a>
             </td>
             <td class="col-md-4"><a th:href="'/service/delete/' + ${service.serviceId}">

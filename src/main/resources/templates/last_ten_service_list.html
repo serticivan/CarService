@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body>
+
+<div th:insert="homepage :: homepageHeaderCss"></div>
+<div th:insert="homepage :: homepageHeader"></div>
+<br>
+<div class="container-fluid col-md-3 text-center">
+    <h1>Last 10 services</h1>
+
+    <table class="table" th:each="service : ${services}">
+        <tbody>
+
+        <tr class="d-flex">
+            <td class="col-md-12"><a th:href="@{'/service/info/' + ${service.serviceId}}">
+                <span th:text="${service.dateNow}">Service</span></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

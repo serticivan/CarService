@@ -9,6 +9,9 @@
 </head>
 <body>
 
+<div th:insert="homepage :: homepageHeaderCss"></div>
+<div th:insert="homepage :: homepageHeader"></div>
+
 <div class="container-fluid col-md-3 text-center">
     <h1>User list</h1>
     <table class="table" th:each="user : ${users}">
@@ -34,6 +37,7 @@
         </a>
         <div/>
     </div>
+</div>
 
 </body>
 </html>
