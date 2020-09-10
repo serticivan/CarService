@@ -36,6 +36,6 @@ public class User {
     @Embedded
     private Address address;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER) //mapperBy = "user" user from Car class(line 39)
     private Set<Car> carList = new HashSet<>();
 }

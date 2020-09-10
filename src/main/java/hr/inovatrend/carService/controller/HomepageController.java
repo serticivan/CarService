@@ -18,7 +18,7 @@ public class HomepageController {
         this.serviceRepository = serviceRepository;
     }
 
-    @RequestMapping("/homepage")
+    @RequestMapping({"/homepage", "", "/"})
     private String getAllUsers(Model model) {
         Page<Service> findLastTenServices = serviceRepository.findAll(PageRequest.of(0,10, Sort.by(Sort.Order.desc("dateNow"))));
         model.addAttribute("services", findLastTenServices);
